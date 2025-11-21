@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_printf_char.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlogtenb <tlogtenb@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/21 17:20:44 by tlogtenb          #+#    #+#             */
-/*   Updated: 2025/11/21 17:20:56 by tlogtenb         ###   ########.fr       */
+/*   Created: 2025/09/04 15:53:57 by tlogtenb          #+#    #+#             */
+/*   Updated: 2025/09/04 15:53:57 by tlogtenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/server.h"
-#include "../../ft_printf/ft_printf.h"
-#include <unistd.h>
+#include "../libft/libft.h"
 
-int	main(void)
+int	ft_printf_char(char c, int fd)
 {
-	pid_t	pid;
-
-	pid = getpid();
-	ft_printf("PID: %d", pid);
+	ft_putchar_fd(c, fd);
+	return (1);
 }

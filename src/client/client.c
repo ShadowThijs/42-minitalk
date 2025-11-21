@@ -11,9 +11,9 @@
 /* ************************************************************************** */
 
 #include "../../include/client.h"
-#include <stdio.h>
+#include "../../ft_printf/ft_printf.h"
 
 int	main(void)
 {
-	printf("Testing client");
+	ft_printf("Testing client");
 }

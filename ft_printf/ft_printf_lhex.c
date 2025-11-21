@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_printf_lhex.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlogtenb <tlogtenb@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/21 17:20:44 by tlogtenb          #+#    #+#             */
-/*   Updated: 2025/11/21 17:20:56 by tlogtenb         ###   ########.fr       */
+/*   Created: 2025/09/04 15:53:57 by tlogtenb          #+#    #+#             */
+/*   Updated: 2025/09/04 15:53:57 by tlogtenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/server.h"
-#include "../../ft_printf/ft_printf.h"
-#include <unistd.h>
+#include "../libft/libft.h"
 
-int	main(void)
+static void	ft_lhex(unsigned int n, int fd, int *ret)
 {
-	pid_t	pid;
+	*ret += 1;
+	if (n >= 16)
+		ft_lhex(n / 16, fd, ret);
+	ft_putchar_fd("0123456789abcdef"[n % 16], fd);
+}
 
-	pid = getpid();
-	ft_printf("PID: %d", pid);
+int	ft_printf_lhex(unsigned int n, int fd)
+{
+	int	ret;
+
+	ret = 0;
+	ft_lhex(n, fd, &ret);
+	return (ret);
 }
